@@ -18,7 +18,8 @@ ext.versions = [
         testRunner      : "1.1.0-alpha4",
         espresso        : "3.1.0-alpha4",
         junit           : "4.12",
-        navigation      : "1.0.0-rc02"
+        navigation      : "1.0.0-rc02",
+        lifecycle       : "2.0.0"
 ]
 
 ext.libs = [
@@ -44,7 +45,9 @@ ext.libs = [
         navigationUi            : "android.arch.navigation:navigation-ui:${versions.navigation}",
         testRunner              : "androidx.test:runner:${versions.testRunner}",
         espresso                : "androidx.test.espresso:espresso-core:${versions.espresso}",
-        junit                   : "junit:junit:${versions.junit}"
+        junit                   : "junit:junit:${versions.junit}",
+        lifecycle               : "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}",
+        lifecycleCompiler       : "androidx.lifecycle:lifecycle-compiler:${versions.lifecycle}"
 ]
 
 buildscript {

@@ -50,6 +50,8 @@ dependencies {
     implementation libs.timber
     implementation libs.navigationFragment
     implementation libs.navigationUi
+    implementation libs.lifecycle
+    kapt libs.lifecycleCompiler
     androidTestImplementation libs.testRunner
     androidTestImplementation libs.espresso
     testImplementation libs.junit
