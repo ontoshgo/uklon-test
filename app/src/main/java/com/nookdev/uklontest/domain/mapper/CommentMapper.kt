@@ -12,7 +12,8 @@ class CommentMapper @Inject constructor() : Mapper<CommentEntity, Comment> {
                 id = id,
                 postId = postId,
                 name = name,
-                body = body
+                body = body,
+                email = email
             )
         }
     }
@@ -23,7 +24,8 @@ class CommentMapper @Inject constructor() : Mapper<CommentEntity, Comment> {
                 id = id,
                 postId = postId,
                 name = name,
-                body = body
+                body = body,
+                email = email
             )
         }
     }

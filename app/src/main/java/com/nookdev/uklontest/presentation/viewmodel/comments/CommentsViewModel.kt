@@ -18,17 +18,16 @@ class CommentsViewModel @Inject constructor(
 ) : BaseViewModel<CommentsUiModel>() {
 
     fun refresh(post: Post) {
-        postUiModel(CommentsUiModel(isLoading = true))
         dataRepository.getComments(postId = post.id)
             .zipWith(dataRepository.getUserById(userId = post.userId),
                 BiFunction { comments: List<Comment>, user: User ->
-                    CommentsUiModel(isLoading = false, user = user, comments = comments)
+                    CommentsUiModel(user = user, comments = comments)
                 }
             ).subscribeOn(executionThread)
             .observeOn(mainThread)
             .subscribe { uiModel, error ->
                 if (error != null) {
-                    postUiModel(CommentsUiModel(isLoading = false, errors = listOf(error)))
+                    postUiModel(CommentsUiModel(errors = listOf(error)))
                     return@subscribe
                 }
                 postUiModel(uiModel)

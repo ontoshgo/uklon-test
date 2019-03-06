@@ -4,7 +4,6 @@ import com.nookdev.uklontest.data.entity.CommentEntity
 import com.nookdev.uklontest.data.entity.PostEntity
 import com.nookdev.uklontest.data.entity.UserEntity
 import com.nookdev.uklontest.domain.exception.ContentNotFoundException
-import io.reactivex.Completable
 import io.reactivex.Single
 import java.util.concurrent.ConcurrentHashMap
 import javax.inject.Inject
@@ -30,26 +29,20 @@ class LocalDataStoreImpl @Inject constructor(
         return Single.just(user)
     }
 
-    override fun savePosts(posts: List<PostEntity>): Completable {
-        return Completable.fromAction {
-            posts.forEach {
-                this.posts[it.id] = it
-            }
+    override fun savePosts(posts: List<PostEntity>) {
+        posts.forEach {
+            this.posts[it.id] = it
         }
     }
 
-    override fun saveComments(comments: List<CommentEntity>): Completable {
-        return Completable.fromAction {
-            comments.forEach {
-                this.comments[it.id] = it
-            }
+    override fun saveComments(comments: List<CommentEntity>) {
+        comments.forEach {
+            this.comments[it.id] = it
         }
     }
 
-    override fun saveUser(user: UserEntity): Completable {
-        return Completable.fromAction {
-            users[user.id] = user
-        }
+    override fun saveUser(user: UserEntity) {
+        users[user.id] = user
     }
 
     private fun getCommentsByPostId(postId: Int): List<CommentEntity> {

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Test task</string>
+    <string name="posts_title">Posts</string>
+    <string name="comments_title">Comments</string>
+    <string name="username_template">Username: %s</string>
+    <string name="name_template">Name: %s</string>
+    <string name="phone_template">Phone: %s</string>
+    <string name="company_name_template">Company: %s</string>
 </resources>

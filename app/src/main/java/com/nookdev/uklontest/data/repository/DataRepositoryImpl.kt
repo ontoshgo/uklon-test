@@ -52,7 +52,7 @@ class DataRepositoryImpl @Inject constructor(
     }
 
     fun pickDataSource(): DataStore {
-        return if (networkStateChecker.getNetworkInfo().isConnected) {
+        return if (networkStateChecker.isConnected()) {
             remoteDataStore
         } else {
             localDataStore

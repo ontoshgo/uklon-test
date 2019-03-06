@@ -1,5 +1,6 @@
 package com.nookdev.uklontest.presentation.view
 
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.nookdev.uklontest.App
 import com.nookdev.uklontest.R
@@ -11,6 +12,12 @@ import com.nookdev.uklontest.presentation.viewmodel.main.MainActivityViewModel
 import com.nookdev.uklontest.util.injectViewModel
 
 class MainActivity : BaseActivity<MainActivityViewModel, Unit>() {
+
+    companion object {
+        operator fun get(fragment: Fragment): MainActivity {
+            return fragment.activity as MainActivity
+        }
+    }
 
     lateinit var component: ActivityComponent
 
@@ -35,7 +42,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, Unit>() {
             }
     }
 
-    override fun getContainerId(): Int = 0//R.id.mainNavHostFragment
+    override fun getContainerId(): Int = R.id.mainNavHostFragment
 
     override fun onUiModelUpdated(newModel: Unit) {
     }

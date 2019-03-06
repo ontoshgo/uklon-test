@@ -14,16 +14,15 @@ class PostsViewModel @Inject constructor(
 ) : BaseViewModel<PostsUiModel>() {
 
     fun refresh() {
-        postUiModel(PostsUiModel(isLoading = true))
         dataRepository.getPosts()
             .subscribeOn(executionThread)
             .observeOn(mainThread)
             .subscribe { posts, error ->
                 if (error != null) {
-                    postUiModel(PostsUiModel(isLoading = false, errors = listOf(error)))
+                    postUiModel(PostsUiModel(errors = listOf(error)))
                     return@subscribe
                 }
-                postUiModel(PostsUiModel(isLoading = false, posts = posts))
+                postUiModel(PostsUiModel(posts = posts))
             }
             .bindToLifeCycle()
     }

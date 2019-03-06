@@ -12,6 +12,7 @@ import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -24,7 +25,7 @@ class NetworkModule {
         private const val CONNECTION_TIMEOUT_SEC = 30L
         private const val CACHE_SIZE = 10_000_000L
         private const val CACHE_FILE_NAME = "http_cache"
-        private const val BASE_URL = ""
+        private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
     }
 
     @Provides
@@ -44,6 +45,7 @@ class NetworkModule {
             .client(okHttpClient)
             .baseUrl(baseUrl)
             .addConverterFactory(gsonConverterFactory)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
     }
 

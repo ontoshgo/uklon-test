@@ -7,7 +7,6 @@ import com.nookdev.uklontest.data.mapper.CommentEntityMapper
 import com.nookdev.uklontest.data.mapper.PostEntityMapper
 import com.nookdev.uklontest.data.mapper.UserEntityMapper
 import com.nookdev.uklontest.data.net.RemoteApi
-import io.reactivex.Completable
 import io.reactivex.Single
 import javax.inject.Inject
 
@@ -38,15 +37,15 @@ class RemoteDataStoreImpl @Inject constructor(
             }
     }
 
-    override fun savePosts(posts: List<PostEntity>): Completable {
+    override fun savePosts(posts: List<PostEntity>) {
         throw NotImplementedError("For local ds use only")
     }
 
-    override fun saveComments(comments: List<CommentEntity>): Completable {
+    override fun saveComments(comments: List<CommentEntity>) {
         throw NotImplementedError("For local ds use only")
     }
 
-    override fun saveUser(user: UserEntity): Completable {
+    override fun saveUser(user: UserEntity) {
         throw NotImplementedError("For local ds use only")
     }
 }

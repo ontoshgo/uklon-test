@@ -10,7 +10,7 @@ interface DataStore {
     fun getPosts(): Single<List<PostEntity>>
     fun getCommentsByPost(postId: Int): Single<List<CommentEntity>>
     fun getUserById(id: Int): Single<UserEntity>
-    fun savePosts(posts: List<PostEntity>): Completable
-    fun saveComments(comments: List<CommentEntity>): Completable
-    fun saveUser(user: UserEntity): Completable
+    fun savePosts(posts: List<PostEntity>)
+    fun saveComments(comments: List<CommentEntity>)
+    fun saveUser(user: UserEntity)
 }
